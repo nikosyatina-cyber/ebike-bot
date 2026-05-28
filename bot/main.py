@@ -1,4 +1,6 @@
 import asyncio
+import sys
+sys.path.insert(0, '/opt/ebike-bot')
 from datetime import datetime
 from sqlalchemy import select
 
