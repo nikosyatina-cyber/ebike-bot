@@ -15,7 +15,11 @@ from core.settings import settings
 engine = create_async_engine(
     settings.database_url,
     echo=False,
-    connect_args={"check_same_thread": False},
+    connect_args={"check_same_thread": False, "timeout": 30},
+    pool_size=20,
+    max_overflow=40,
+    pool_timeout=60,
+    pool_recycle=3600,
 )
 
 async_session = async_sessionmaker(
